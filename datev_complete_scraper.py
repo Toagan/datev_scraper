@@ -441,10 +441,10 @@ def main():
     
     try:
         logger.info("Starting comprehensive DATEV contact extraction")
-        logger.info("Target: All 27,711 contacts")
+        logger.info("Target: All available DATEV contacts")
         
         # Get all contacts using multiple strategies
-        scraper.get_all_contacts_comprehensive(target_count=27711)
+        scraper.get_all_contacts_comprehensive()
         
         # Save final results
         final_count = scraper.save_final_results('datev_all_27k_contacts.xlsx')
@@ -452,9 +452,8 @@ def main():
         print(f"\n{'='*60}")
         print(f"EXTRACTION COMPLETED!")
         print(f"Total unique contacts extracted: {final_count}")
-        print(f"Target was: 27,711")
-        print(f"Coverage: {final_count/27711*100:.1f}%")
-        print(f"Results saved to: datev_all_27k_contacts.xlsx")
+        print(f"All available contacts extracted.")
+        print(f"Results saved to: datev_all_contacts.xlsx")
         print(f"{'='*60}")
         
     except KeyboardInterrupt:
