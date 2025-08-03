@@ -32,7 +32,7 @@ class CompleteDATEVScraper:
         self.all_contacts = set()  # Use set to avoid duplicates
         self.contact_data = []
         
-    def get_all_contacts_comprehensive(self, target_count=27711):
+    def get_all_contacts_comprehensive(self):
         """
         Comprehensive strategy to get all contacts using multiple approaches
         """
@@ -55,11 +55,6 @@ class CompleteDATEVScraper:
                 # Save progress periodically
                 if len(self.contact_data) > 0:
                     self._save_progress()
-                
-                # Check if we have enough contacts
-                if len(self.all_contacts) >= target_count * 0.95:  # 95% coverage
-                    logger.info("Target coverage reached!")
-                    break
                     
             except Exception as e:
                 logger.error(f"Strategy {i} failed: {e}")
